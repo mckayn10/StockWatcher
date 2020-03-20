@@ -1,13 +1,6 @@
-$header-color: rgb(78, 78, 116);
+@import '../../App.scss';
 
 .home-container {
     padding: 50px 80px;
 }
 
-h1 {
-    font-size: 70px;
-}
-
-h1, h2, h3, h4, h5 {
-    color: $header-color
-}
