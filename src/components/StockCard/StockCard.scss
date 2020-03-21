@@ -1,0 +1,83 @@
+@import "../../Global.scss";
+
+.card-container {
+  margin-top: 4px;
+  .stock-card {
+    width: 560px;
+    height: 190px;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 0px 3px 20px 1px rgba(122, 122, 122, 0.212);
+    h5 {
+        line-height: 0px;
+        font-size: 16px;
+    }
+  }
+  .scale-wrapper {
+    width: 120px;
+    padding: 13px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      color: white;
+    }
+  }
+  .info-wrapper {
+    width: 380px;
+    padding: 10px 25px;
+    margin: 10px 0;
+    .name-info {
+        width: 380px;
+        margin-bottom: -15px;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      h2 {
+        line-height: 5px;
+        text-transform: uppercase;
+        font-weight: 800;
+
+      }
+      h4 {
+        line-height: 0px;
+        text-transform: uppercase;
+        color: #98a1a8;
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+    .current-info {
+        height: 49px;
+        display: flex;
+        align-items: baseline;
+        margin: 0;
+        padding: 0;
+    
+        h2 {
+            font-size: 40px;
+            line-height: 0px;
+            font-weight: 450;
+            letter-spacing: 0px;
+        }
+        .net-amount {
+            margin: 0 13px;
+        }
+    }
+    .daily-info {
+        h5 {
+            color: #98a1a8;
+            font-weight: 500;
+            text-transform: uppercase;
+            line-height: 0px;
+        }
+        .high-amount {
+            margin: auto 20px;
+        }
+    }
+    
+  }
+}

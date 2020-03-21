@@ -1,6 +1,9 @@
-@import '../../App.scss';
+@import '../../Global.scss';
 
 .home-container {
     padding: 50px 80px;
 }
 
+.list-container {
+    flex-wrap: wrap;
+}

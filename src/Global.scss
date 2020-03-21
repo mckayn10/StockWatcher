@@ -1,0 +1,54 @@
+$font-color: #3e5769;
+$green: #299e00;
+$red: #bb0606;
+
+.app-container {
+  max-height: auto;
+  min-height: 100vh;
+  width: auto;
+  background-color: rgb(243, 243, 243);
+}
+
+h1 {
+  font-size: 75px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+div {
+  color: $font-color;
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.green {
+  color: $green;
+}
+
+.red {
+  color: $red;
+}
+
+.blue-text {
+  color: $font-color;
+}
+
+.green-gradient {
+  background: rgb(106, 245, 49);
+  background: linear-gradient(180deg, rgba(106, 245, 49, 1) 0%, rgba(0, 163, 51, 1) 79%);
+}
+
+.red-gradient {
+  background: rgb(235, 86, 49);
+  background: linear-gradient(180deg, rgba(235, 86, 49, 1) 0%, rgba(144, 23, 0, 1) 79%);
+}

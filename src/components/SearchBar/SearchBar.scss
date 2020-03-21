@@ -1,10 +1,11 @@
-@import '../../App.scss';
+@import '../../Global.scss';
 
 .search-container {
     max-width: 570px;
+    margin-bottom: 40px;
     display: flex;
     input, button {
-        padding: 18px;
+        padding: 19px;
         font-size: 20px;
         margin: 5px;
         border-radius: 3px;
@@ -13,22 +14,24 @@
     input {
         background-color: transparent;
         border: 1px solid rgb(221, 221, 221);
-        font-size: 21px;
+        font-size: 22px;
+        color: $font-color;
+        ::placeholder {
+            color: rgba(78, 78, 116, 0.801);
+        }
 
-    }
-    input::placeholder {
-        color: rgba(78, 78, 116, 0.801);
     }
     button {
         min-width: 200px;
-        background-color: #233cc9;
-        color: white;
+        background-color: #284CC9;
+        color: rgba(255, 255, 255, 0.849);
         font-weight: 550;
         border: none;
         flex: 1;
         box-shadow: 0 10px 40px -20px rgb(20, 20, 20);
         letter-spacing: 2px;
         font-size: 16px;
+        cursor: pointer;
     }
 
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './Views/Home/Home';
-import './App.scss';
+import './Global.scss';
 
 function App() {
   return (
