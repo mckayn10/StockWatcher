@@ -26,6 +26,10 @@ div {
   display: flex;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .center {
   display: flex;
   justify-content: center;
