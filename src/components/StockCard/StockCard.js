@@ -1,13 +1,14 @@
 import React from 'react';
 import './StockCard.scss';
+import Arrow from '../Icons/Arrow';
 
 const StockCard = ({ newStock }) => {
 
-    const { 
-        symbol, 
-        company, 
-        open, 
-        high, 
+    const {
+        symbol,
+        company,
+        open,
+        high,
         low,
         close } = newStock;
 
@@ -26,11 +27,11 @@ const StockCard = ({ newStock }) => {
     const rdGrad = 'red-gradient';
     const grText = 'green';
     const rdText = 'red';
-    const triangleHeight = { top: `${94 - ((newClose - newLow) / (newHigh - newLow) * 100)}%`}
-    const lineGradient = { backgroundImage: parseFloat(netVal) >= 0 ? posGrad : negGrad}
+    const triangleHeight = { top: `${94 - ((newClose - newLow) / (newHigh - newLow) * 100)}%` }
+    const lineGradient = { backgroundImage: parseFloat(netVal) >= 0 ? posGrad : negGrad }
     const bgGradient = parseFloat(netVal) >= 0 ? grGrad : rdGrad;
     const textColor = parseFloat(netVal) >= 0 ? grText : rdText;
-    
+
 
     return (
         <div className="card-container">
@@ -60,22 +61,28 @@ const StockCard = ({ newStock }) => {
                             <h2> {newClose} </h2>
                         </div>
                         <div className="flex">
-                            <h5 className={`net-amount ${textColor}`}> {netVal} </h5>
+                            <div className={`net-amount flex ${textColor}`}>
+                                <Arrow
+                                    netVal={netVal}
+                                    color={textColor}
+                                />
+                                <h5 className={textColor}> {netVal} </h5>
+                            </div>
                             <h5 className={textColor}> &#40;{percent}%&#41; </h5>
                         </div>
                     </div>
                     <div className="daily-info flex">
-                        <h5> 
-                            Open  
-                            <span className="blue-text"> {newOpen} </span> 
+                        <h5>
+                            Open
+                            <span className="blue-text"> {newOpen} </span>
                         </h5>
                         <h5 className="high-amount">
-                             High 
-                             <span className="blue-text"> {newHigh} </span> 
+                            High
+                             <span className="blue-text"> {newHigh} </span>
                         </h5>
-                        <h5> 
-                            Low  
-                            <span className="blue-text"> {newLow} </span> 
+                        <h5>
+                            Low
+                            <span className="blue-text"> {newLow} </span>
                         </h5>
                     </div>
                 </div>
