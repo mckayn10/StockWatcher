@@ -3,7 +3,13 @@ import './StockCard.scss';
 
 const StockCard = ({ newStock }) => {
 
-    const { symbol, company, open, high, low, close } = newStock;
+    const { 
+        symbol, 
+        company, 
+        open, 
+        high, 
+        low,
+        close } = newStock;
 
     const newOpen = parseFloat(open).toFixed(2);
     const newHigh = parseFloat(high).toFixed(2);
@@ -59,9 +65,18 @@ const StockCard = ({ newStock }) => {
                         </div>
                     </div>
                     <div className="daily-info flex">
-                        <h5> Open  <span className="blue-text">{newOpen}</span> </h5>
-                        <h5 className="high-amount"> High  <span className="blue-text">{newHigh}</span> </h5>
-                        <h5> Low  <span className="blue-text">{newLow}</span> </h5>
+                        <h5> 
+                            Open  
+                            <span className="blue-text"> {newOpen} </span> 
+                        </h5>
+                        <h5 className="high-amount">
+                             High 
+                             <span className="blue-text"> {newHigh} </span> 
+                        </h5>
+                        <h5> 
+                            Low  
+                            <span className="blue-text"> {newLow} </span> 
+                        </h5>
                     </div>
                 </div>
             </div>

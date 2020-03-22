@@ -1,7 +1,11 @@
 import React from 'react';
 import './SearchBar.scss';
 
-const SearchBar = ({ searchChange, addStock, inputValue, screenWidth }) => {
+const SearchBar = ({
+    searchChange,
+    addStock,
+    inputValue,
+    screenWidth }) => {
 
     return (
         <div className="search-container">
@@ -13,10 +17,9 @@ const SearchBar = ({ searchChange, addStock, inputValue, screenWidth }) => {
                 onChange={searchChange}
 
             />
-
-            {screenWidth > 640 ? 
-                <button onClick={addStock}>ADD STOCK</button> 
-                : <button onClick={addStock}>ADD</button>
+            {screenWidth > 640 
+                ? <button onClick={addStock}> ADD STOCK </button>
+                : <button onClick={addStock}> ADD </button>
             }
 
         </div>

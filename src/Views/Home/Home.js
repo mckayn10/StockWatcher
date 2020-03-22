@@ -11,10 +11,9 @@ class Home extends Component {
         searchField: '',
         searchedStock: {},
         stocksArr: [],
-        width: 800,
-        height: 182,
+        width: 0,
+        height: 0,
     }
-
 
     // Calculate & Update state of new dimensions
 
@@ -29,15 +28,12 @@ class Home extends Component {
     }
 
     // Add Event Listener 
-
     componentDidMount = () => {
         this.updateDimensions();
         window.addEventListener("resize", this.updateDimensions);
     }
 
-
     // Remove event listener
-
     componentWillUnmount = () => {
         window.removeEventListener("resize", this.updateDimensions);
     }
@@ -50,9 +46,12 @@ class Home extends Component {
 
     addStock = () => {
 
-        axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.state.searchField}&apikey=HY0JP87WH3PG17X6`)
+        const infoEP = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.state.searchField}&apikey=HY0JP87WH3PG17X6`
+        const nameEP = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${this.state.searchField}&apikey=HY0JP87WH3PG17X6`
+
+        axios.get(infoEP)
             .then(stockInfo => {
-                axios.get(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${this.state.searchField}&apikey=HY0JP87WH3PG17X6`)
+                axios.get(nameEP)
                     .then(nameInfo => {
 
                         const dailyStockValue = stockInfo.data['Time Series (Daily)']
@@ -68,12 +67,15 @@ class Home extends Component {
                             close: stock["4. close"]
                         }
 
-                        this.setState({ searchedStock: newStock })
-                        this.setState({ stocksArr: [...this.state.stocksArr, newStock], searchField: "" })
+                        this.setState({ 
+                            searchedStock: newStock,
+                            stocksArr: [...this.state.stocksArr, newStock],
+                            searchField: ""
+                        })
 
                     })
                     .catch((err) => {
-                        alert('please enter a valid stock symbol')
+                        alert(err, 'please enter a valid stock symbol')
                     })
             })
             .catch((err) => {
@@ -84,14 +86,14 @@ class Home extends Component {
 
     render() {
 
-        let myStocksArr = this.state.stocksArr.map((stock, i) => {
+        const myStocksArr = this.state.stocksArr.map((stock, i) => {
             return <StockCard key={i} newStock={stock} />
-            
+
         })
 
         return (
             <div className="home-container">
-                <h1>Stock Watcher</h1>
+                <h1> Stock Watcher </h1>
                 <SearchBar
                     searchChange={this.onSearchChange}
                     addStock={this.addStock}
