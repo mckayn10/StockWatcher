@@ -56,16 +56,18 @@ class Home extends Component {
 
                         const dailyStockValue = stockInfo.data['Time Series (Daily)']
                         const date = Object.keys(stockInfo.data['Time Series (Daily)'])[0]
-                        const stock = dailyStockValue[`${date}`]
+                        const stockObj = dailyStockValue[`${date}`]
 
                         const newStock = {
                             symbol: nameInfo.data.bestMatches[0]["1. symbol"],
                             company: nameInfo.data.bestMatches[0]["2. name"],
-                            open: stock["1. open"],
-                            high: stock["2. high"],
-                            low: stock["3. low"],
-                            close: stock["4. close"]
+                            open: stockObj["1. open"],
+                            high: stockObj["2. high"],
+                            low: stockObj["3. low"],
+                            close: stockObj["4. close"]
                         }
+
+                        console.log(stockObj)
 
                         this.setState({ 
                             searchedStock: newStock,
@@ -75,7 +77,7 @@ class Home extends Component {
 
                     })
                     .catch((err) => {
-                        alert(err, 'please enter a valid stock symbol')
+                        alert(err, 'please enter a valid stock symbol or try again in 15 seconds')
                     })
             })
             .catch((err) => {

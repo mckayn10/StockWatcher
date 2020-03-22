@@ -1,0 +1,9 @@
+Questions for Designer:
+
+1. Regarding the "Add Stock" button, what styles should be implemented on Hover, on Press, etc..
+
+2. How would should error messages be displayed? I used a popup alert, but would you rather have error text displayed directly on the page somewhere?
+
+3. At what exactly what width should the break points be at?
+
+4. How to handle the design of certain elements in between specified break points?

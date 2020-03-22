@@ -56,3 +56,9 @@ div {
   background: rgb(235, 86, 49);
   background: linear-gradient(180deg, rgba(235, 86, 49, 1) 0%, rgba(144, 23, 0, 1) 79%);
 }
+
+.ellipses {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: hidden;
+}
