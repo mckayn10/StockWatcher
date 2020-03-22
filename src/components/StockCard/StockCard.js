@@ -20,8 +20,11 @@ const StockCard = ({ newStock }) => {
         <div className="card-container">
             <div className="stock-card flex">
                 <div className={`scale-wrapper ${parseFloat(netVal) >= 0 ? 'green-gradient' : 'red-gradient'}`}>
-                    <div> {newHigh} </div>
-                    <div> {newLow} </div>
+                    <div className="scale-graph"></div>
+                    <div className="scale-amounts">
+                        <div> {newHigh} </div>
+                        <div> {newLow} </div>
+                    </div>
                 </div>
                 <div className="info-wrapper">
                     <div className="name-info">
@@ -29,9 +32,13 @@ const StockCard = ({ newStock }) => {
                         <h4> {symbol} </h4>
                     </div>
                     <div className="current-info flex">
-                        <h2> {newClose} </h2>
-                        <h5 className={`net-amount ${parseFloat(netVal) >= 0 ? 'green' : 'red'}`}> {netVal} </h5>
-                        <h5 className={parseFloat(percent) >= 0 ? 'green' : 'red'}> &#40;{percent}%&#41; </h5>
+                        <div>
+                            <h2> {newClose} </h2>
+                        </div>
+                        <div className="flex">
+                            <h5 className={`net-amount ${parseFloat(netVal) >= 0 ? 'green' : 'red'}`}> {netVal} </h5>
+                            <h5 className={parseFloat(percent) >= 0 ? 'green' : 'red'}> &#40;{percent}%&#41; </h5>
+                        </div>
                     </div>
                     <div className="daily-info flex">
                         <h5> Open  <span className="blue-text">{newOpen}</span> </h5>

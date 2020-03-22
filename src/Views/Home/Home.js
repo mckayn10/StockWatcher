@@ -10,7 +10,36 @@ class Home extends Component {
     state = {
         searchField: '',
         searchedStock: {},
-        stocksArr: []
+        stocksArr: [],
+        width: 800,
+        height: 182,
+    }
+
+
+    // Calculate & Update state of new dimensions
+
+    updateDimensions = () => {
+        if (window.innerWidth < 500) {
+            this.setState({ width: 450, height: 102 });
+        } else {
+            let update_width = window.innerWidth;
+            let update_height = window.innerHeight;
+            this.setState({ width: update_width, height: update_height });
+        }
+    }
+
+    // Add Event Listener 
+
+    componentDidMount = () => {
+        this.updateDimensions();
+        window.addEventListener("resize", this.updateDimensions);
+    }
+
+
+    // Remove event listener
+
+    componentWillUnmount = () => {
+        window.removeEventListener("resize", this.updateDimensions);
     }
 
     onSearchChange = (e) => {
@@ -41,6 +70,7 @@ class Home extends Component {
 
                         this.setState({ searchedStock: newStock })
                         this.setState({ stocksArr: [...this.state.stocksArr, newStock], searchField: "" })
+
                     })
                     .catch((err) => {
                         alert('please enter a valid stock symbol')
@@ -54,9 +84,9 @@ class Home extends Component {
 
     render() {
 
-        console.log(this.state.stocksArr);
         let myStocksArr = this.state.stocksArr.map((stock, i) => {
             return <StockCard key={i} newStock={stock} />
+            
         })
 
         return (
@@ -66,6 +96,7 @@ class Home extends Component {
                     searchChange={this.onSearchChange}
                     addStock={this.addStock}
                     inputValue={this.state.searchField}
+                    screenWidth={this.state.width}
                 />
                 <div className="list-container flex">
                     {myStocksArr}

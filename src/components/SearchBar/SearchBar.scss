@@ -1,60 +1,82 @@
-@import '../../Global.scss';
+@import "../../Global.scss";
 
 .search-container {
-    max-width: 570px;
-    margin-bottom: 40px;
-    display: flex;
-    input, button {
-        padding: 19px;
-        font-size: 20px;
-        margin: 5px;
-        border-radius: 3px;
-        flex: auto;
+  max-width: 570px;
+  margin-bottom: 40px;
+  display: flex;
+  input,
+  button {
+    padding: 19px;
+    font-size: 20px;
+    margin: 5px;
+    border-radius: 3px;
+    flex: auto;
+  }
+  input {
+    background-color: transparent;
+    border: 1px solid rgb(221, 221, 221);
+    font-size: 22px;
+    color: $font-color;
+    ::placeholder {
+      color: rgba(78, 78, 116, 0.801);
     }
-    input {
-        background-color: transparent;
-        border: 1px solid rgb(221, 221, 221);
-        font-size: 22px;
-        color: $font-color;
-        ::placeholder {
-            color: rgba(78, 78, 116, 0.801);
-        }
-
-    }
-    button {
-        min-width: 200px;
-        background-color: #284CC9;
-        color: rgba(255, 255, 255, 0.849);
-        font-weight: 550;
-        border: none;
-        flex: 1;
-        box-shadow: 0 10px 40px -20px rgb(20, 20, 20);
-        letter-spacing: 2px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
+  }
+  button {
+    min-width: 200px;
+    background-color: #284cc9;
+    color: rgba(255, 255, 255, 0.849);
+    font-weight: 550;
+    border: none;
+    flex: 1;
+    box-shadow: 0 10px 40px -20px rgb(20, 20, 20);
+    letter-spacing: 2px;
+    font-size: 16px;
+    cursor: pointer;
+  }
 }
 
-
 @media only screen and (max-width: 1310px) {
+}
 
-  }
-
-  @media only screen and (max-width: 980px) {
-    .search-container {
-        max-width: none;
-        input, button {
-            
-        }
-        input {
-
-            }
-    
-        }
-        button {
-
-        }
-    
+@media only screen and (max-width: 980px) {
+  .search-container {
+    max-width: 100%;
+    width: 100%;
+    input,
+    button {
+        
     }
-  
+    input {
+    }
+    button {
+      min-width: 108px !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .search-container {
+    input,
+    button {
+        padding: 19px 10px;
+    }
+    input {
+        width: 100px;
+    }
+  }
+  button {
+    min-width: 108px !important;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+    .search-container {
+     input {
+        font-size: 15px;
+     }
+    }
+    button {
+        font-size: 13px!important;
+        min-width: 80px !important;
+    }
+  }

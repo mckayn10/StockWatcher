@@ -11,15 +11,32 @@
     h5 {
       line-height: 0px;
       font-size: 16px;
+      padding: 0;
+      margin: 0;
     }
   }
   .scale-wrapper {
     width: 120px;
     padding: 13px 2px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    .scale-graph {
+      height: 94%;
+      border-right: 2px solid white;
+      margin-right: 10px;
+      position: relative;
+      }
+    }
+    .scale-amounts {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      div {
+        font-weight: 600;
+      }
+    }
 
     div {
       color: white;
@@ -53,7 +70,7 @@
       height: 49px;
       display: flex;
       align-items: baseline;
-      margin: 0;
+      margin: 0px 0;
       padding: 0;
 
       h2 {
@@ -67,18 +84,18 @@
       }
     }
     .daily-info {
+      padding-top: 20px;
       h5 {
         color: #98a1a8;
         font-weight: 500;
         text-transform: uppercase;
-        line-height: 0px;
       }
       .high-amount {
         margin: auto 20px;
       }
     }
   }
-}
+
 
 // MEDIA QUERIES
 
@@ -87,7 +104,6 @@
     width: 50%;
     .stock-card {
       height: auto;
-
     }
     .info-wrapper {
       width: 60%;
@@ -110,10 +126,61 @@
   }
 }
 
-
-  @media only screen and (max-width: 980px) {
-    .card-container {
+@media only screen and (max-width: 980px) {
+  .card-container {
+    width: 50%;
+    min-width: 280px;
+    .stock-card {
+      .scale-wrapper {
+        display: none;
+      }
+      .info-wrapper {
         width: 100%;
-        min-width: 500px;
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 25px;
+        .current-info {
+          height: auto;
+          flex-direction: column;
+          align-items: flex-end;
+          align-content: center;
+        }
+        .daily-info {
+          display: none;
+        }
+      }
+    }
   }
+}
+
+@media only screen and (max-width: 980px) {
+  .card-container {
+    h2 {
+      font-size: 18px;
+    }
+
+    .info-wrapper {
+      padding: 8px 25px;
+      .current-info {
+        h2 {
+          font-size: 28px !important;
+        }
+      }
+      .name-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h4 {
+          font-size: 15px;
+          margin-top: 5px;
+        }
+      }
+    }
   }
+}
+
+@media only screen and (max-width: 610px) {
+  .card-container {
+    width: 100%;
+  }
+}
